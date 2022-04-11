@@ -18,21 +18,16 @@ function FalaMorango() {
             onDone: finalizaFala
         })
     }
-    function parar() {
-        Speech.stop()
-    }
     const iniciaFala = () => {
         setFalando(true)
     }
     const finalizaFala = () => {
         setFalando(false)
     }
-
     return (
         <View style={styles.Principal}>
             <Text style={styles.Titulo}>
                 Morango
-                <FontAwesome name="comment-o" size={50} />
                 </Text>
             {falando && <ActivityIndicator size="large" color="#1A237E" />}
             <View style={styles.Botoes}>
@@ -40,14 +35,7 @@ function FalaMorango() {
                     name="volume-up"
                     backgroundColor="#0275d8"
                     onPress={falar}
-                    style={styles.Botao}>Ouvir a Frase
-                </FontAwesome.Button>
-                <FontAwesome.Button
-                    name="stop-circle"
-                    backgroundColor={!falando ? "#CCCCCC" : "#d9534f"}
-                    onPress={parar}
-                    disabled={!falando}
-                    style={styles.Botao}>Parar
+                    style={styles.Botao}>Ouvir
                 </FontAwesome.Button>
             </View>
         </View>
@@ -61,17 +49,17 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     Titulo: {
-        color: '#1A237E',
-        fontSize: 30
+        color: '#282424',
+        fontSize: 45
     },
     Foto: {
         height: 400,
-        width: '100%',
+        width: '50%',
         resizeMode: 'center'
     },
     Botao: {
         width: 150,
-        height: 30
+        height: 50
     },
     Botoes: {
         flex: 1,

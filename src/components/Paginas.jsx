@@ -1,9 +1,10 @@
 import React from 'react';
+//import { MotiImage } from 'moti';
+
 import { StyleSheet, View, Text } from 'react-native';
 import PagerView from 'react-native-pager-view';
 
-
-// importe de Screen 
+// importe de Screen falas
 import FalaMaca from '../screens/falar/Maca';
 import FalaMorango from '../screens/falar/Morango';
 import FalaElefante from '../screens/falar/Elefante';
@@ -44,5 +45,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-
 export default MinhaPagina;

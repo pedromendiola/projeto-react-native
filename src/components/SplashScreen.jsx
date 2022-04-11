@@ -3,7 +3,8 @@ import { Text, View } from 'react-native';
 import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-//import Wave from "../../assets/Wave";
+
+//import { MotiImage } from 'moti';
 
 function Tela() {
   const [appAtivo, setAppAtivo] = useState(false)
@@ -13,17 +14,16 @@ function Tela() {
     // codigo da splash screen
     async function prepare() {
       try {
-        // Keep the splash screen visible while we fetch resources
+        // Mantem a tela splash screen enquanto busca recurso
         await SplashScreen.preventAutoHideAsync();
-        // Pre-load fonts, make any API calls you need to do here
+        // Pre-carrega fontes, local para chamada de APIs
         await Font.loadAsync(Entypo.font);
-        // Artificially delay for two seconds to simulate a slow loading
-        // experience.
+        // Delay artificial para simular carregamento
         await new Promise(resolve => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
-        // Tell the application to render
+        // Diz para o aplicativo renderizar
         setAppAtivo(true);
       }
     }
@@ -34,11 +34,7 @@ function Tela() {
   // codigo da splash screen 
   const onLayoutRootView = useCallback(async () => {
     if (appAtivo) {
-      // This tells the splash screen to hide immediately! If we call this after
-      // `setAppIsReady`, then we may see a blank screen while the app is
-      // loading its initial state and rendering its first pixels. So instead,
-      // we hide the splash screen once we know the root view has already
-      // performed layout.
+      // Diz para a splash screen sumir quando o conteudo da tela principal do app estiver totalmente carregado
       await SplashScreen.hideAsync();
     }
   }, [appAtivo]);

@@ -7,7 +7,6 @@ import { Ionicons } from '@expo/vector-icons'
 
 // importe das Screens
 import InicioScreen from './../screens/Inicio'
-import ConfiguracoesScreen from './../screens/Configuracoes'
 
 //importe de componente
 import Paginas from './../components/Paginas'
@@ -50,15 +49,6 @@ function Menu() {
                             color={focused ? '#7CC' : '#CCC'} />)
                 }}
             />
-            <Drawer.Screen name="Configurações"
-                component={ConfiguracoesScreen}
-                options={{
-                    drawerIcon: ({ focused }) => (
-                        <Ionicons name={`${iconePadrao}-cog`}
-                            size={32}
-                            color={focused ? '#7CC' : '#CCC'} />)
-                }}
-            />
             <Drawer.Screen name="Falar"
                 component={Paginas}
                 options={{
@@ -69,7 +59,6 @@ function Menu() {
                 }}
             />
         </Drawer.Navigator>
-
     )
 }
 export default Menu
