@@ -3,19 +3,20 @@ import { Text, View } from 'react-native';
 import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
+//import Wave from "../../assets/Wave";
 
-function Tela(){
-    const [appAtivo, setAppAtivo] = useState(false)
-  
-    useEffect(()=>{
-    
+function Tela() {
+  const [appAtivo, setAppAtivo] = useState(false)
+
+  useEffect(() => {
+
     // codigo da splash screen
     async function prepare() {
       try {
         // Keep the splash screen visible while we fetch resources
         await SplashScreen.preventAutoHideAsync();
         // Pre-load fonts, make any API calls you need to do here
-        await Font.loadAsync(Ionicons.font);
+        await Font.loadAsync(Entypo.font);
         // Artificially delay for two seconds to simulate a slow loading
         // experience.
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -28,7 +29,7 @@ function Tela(){
     }
     //fim codigo da splash screen
     prepare();
-  },[])
+  }, [])
 
   // codigo da splash screen 
   const onLayoutRootView = useCallback(async () => {
@@ -45,16 +46,13 @@ function Tela(){
   if (!appAtivo) {
     return null;
   }
- //fim codigo da splash screen
+  //fim codigo da splash screen
 
- return (
+  return (
     <View
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
       onLayout={onLayoutRootView}>
-      <Text>SplashScreen Demo! 👋</Text>
-      <Entypo name="rocket" size={30} />
     </View>
   );
 
 }
-export default Tela
+export default Tela;
